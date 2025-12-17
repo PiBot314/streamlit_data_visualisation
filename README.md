@@ -1,0 +1,1 @@
+So this uses an old version of streamlit. I'll update it soon as possible
