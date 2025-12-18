@@ -4,3 +4,9 @@ xbee_sim acts as an xbee but with non-realistic data. It will send the data thro
 xbee_log saves the realtime data into a file
 the visualiser takes static data and visualises it
 the dynamic visualiser will take realtime data and visualise.
+
+to run static fn: streamlit run static_data.py
+
+![alt text](vi.png)
+![alt text](pressure.png)
+![alt text](altitude.png)
