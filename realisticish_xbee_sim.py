@@ -1,12 +1,13 @@
 import serial
 import time
 import random
+import csv
 from datetime import datetime
 
 # --- Configuration (Must match your virtual serial port setup) ---
 SERIAL_PORT = 'COM10'  # Sender side of the virtual pair
 BAUD_RATE = 9600
-TEAM_ID = "CG"
+TEAM_ID = "fly"
 
 # Flight Profile Parameters
 APOGEE_ALTITUDE = 1000  # meters
@@ -40,6 +41,14 @@ FLIGHT_STAGES = [
     # 4. Landed
     {"STATE": "LANDED", "DURATION": 30, "ALT_RATE": 0, "TEMP_RATE": 0.0}
 ]
+
+def save_to_csv(filename, data_list):
+    """
+    Appends a single list of data as a new row in a CSV file.
+    """
+    with open(filename, mode='a', newline='', encoding='utf-8') as file:
+        writer = csv.writer(file)
+        writer.writerow(data_list)
 
 def generate_telemetry_line(state_data):
     """Generates a single, comma-separated telemetry line."""
